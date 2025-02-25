@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Reading List - PoA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+      .reading-list-container {
+        margin-top: 2rem;
+      }
+      .reading-column {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 1rem;
+        background-color: #fff;
+        margin-bottom: 1rem;
+        min-height: 300px;
+      }
+      .reading-column h4 {
+        text-align: center;
+        margin-bottom: 1rem;
+        background-color: #005f73;
+        color: #fff;
+        padding: 0.5rem;
+        border-radius: 5px;
+      }
+      .book-item {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .book-item h5 {
+        margin: 0;
+      }
+      .book-item p {
+        margin: 0.5rem 0 0 0;
+      }
+      .book-item .btn {
+        margin-right: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PoA</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="weekly.html">Planner</a></li>
+            <li class="nav-item"><a class="nav-link active" href="readinglist.html">Reading List</a></li>
+            <li class="nav-item"><a class="nav-link" href="journal.html">Journal</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Reading List Form -->
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">My Reading List</h1>
+      <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+          Add New Book
+        </div>
+        <div class="card-body">
+          <form id="bookForm">
+            <div class="row g-3">
+              <div class="col-md-4">
+                <input type="text" id="bookTitle" class="form-control" placeholder="Book Title" required>
+              </div>
+              <div class="col-md-4">
+                <input type="text" id="bookAuthor" class="form-control" placeholder="Author" required>
+              </div>
+              <div class="col-md-4">
+                <select id="bookStatus" class="form-select" required>
+                  <option value="Not Started">Not Started</option>
+                  <option value="In Process">In Process</option>
+                  <option value="Finished">Finished</option>
+                </select>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <button type="submit" class="btn btn-primary">Add Book</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Reading List Display -->
+      <div class="row reading-list-container">
+        <div class="col-md-4">
+          <div class="reading-column" id="notStartedColumn">
+            <h4>Not Started</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="reading-column" id="inProcessColumn">
+            <h4>In Process</h4>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="reading-column" id="finishedColumn">
+            <h4>Finished</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+      <div class="container">
+        <p>&copy; 2025 PoA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Reading List JS -->
+    <script src="js/readinglist.js"></script>
+  </body>
+</html>

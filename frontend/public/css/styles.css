@@ -1,0 +1,47 @@
+/* Global Styles */
+body {
+    background-color: #f7f9fc;
+    color: #333;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Navbar Customizations */
+  .navbar-brand img {
+    margin-right: 8px;
+  }
+  
+  /* Week Container */
+  .week-container {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  /* Day Column */
+  .day-column {
+    border-right: 1px solid #eee;
+    min-height: 150px;
+    padding: 0.5rem;
+  }
+  .day-column:last-child {
+    border-right: none;
+  }
+  
+  /* Task Item */
+  .task-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  .task-item.completed span {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  /* Footer */
+  footer {
+    margin-top: 2rem;
+  }
+  

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Journal Timeline - PoA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Optional Global CSS -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      /* Creative timeline styles */
+      .timeline {
+        position: relative;
+        margin: 2rem 0;
+        padding: 0;
+        list-style: none;
+      }
+      .timeline:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background: #005f73;
+      }
+      .timeline-item {
+        position: relative;
+        width: 45%;
+        padding: 1rem 2rem;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        margin-bottom: 2rem;
+      }
+      .timeline-item-left {
+        left: 0;
+        text-align: right;
+      }
+      .timeline-item-right {
+        left: 55%;
+      }
+      .timeline-item:before {
+        content: '';
+        position: absolute;
+        top: 1rem;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: #fff;
+        border: 4px solid #005f73;
+      }
+      .timeline-item-left:before {
+        right: -10px;
+      }
+      .timeline-item-right:before {
+        left: -10px;
+      }
+      .timeline-date {
+        font-size: 0.9rem;
+        color: #888;
+      }
+      .timeline-content {
+        margin-top: 0.5rem;
+        font-size: 1.1rem;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PoA</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="weekly.html">Planner</a></li>
+            <li class="nav-item"><a class="nav-link" href="readinglist.html">Reading List</a></li>
+            <li class="nav-item"><a class="nav-link active" href="journal.html">Journal</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Journal Entry Form -->
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">My Journal Timeline</h1>
+      <div class="card shadow-sm mb-5">
+        <div class="card-header bg-info text-white">
+          Journal Entry
+        </div>
+        <div class="card-body">
+          <form id="journalForm">
+            <div class="row g-3">
+              <div class="col-md-3">
+                <label for="entryDate" class="form-label">Date</label>
+                <input type="date" id="entryDate" class="form-control" required>
+              </div>
+              <div class="col-md-3">
+                <label for="entryName" class="form-label">Title</label>
+                <input type="text" id="entryName" class="form-control" placeholder="Title of Thought" required>
+              </div>
+              <div class="col-md-6">
+                <label for="entryContent" class="form-label">Content</label>
+                <textarea id="entryContent" class="form-control" rows="2" placeholder="Share your thoughts..." required></textarea>
+              </div>
+            </div>
+            <div class="text-center mt-3">
+              <button type="submit" class="btn btn-primary">Add Entry</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- Timeline -->
+      <ul id="journalTimeline" class="timeline"></ul>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+      <div class="container">
+        <p>&copy; 2025 PoA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Journal Functionality JS -->
+    <script src="js/journal.js"></script>
+  </body>
+</html>

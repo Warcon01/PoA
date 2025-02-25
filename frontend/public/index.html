@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Home - PoA</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">PoA</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item" id="adminNav"></li>
+            <li class="nav-item">
+                <a class="nav-link" href="weekly.html">Planner</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="readinglist.html">Reading List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="journal.html">Journal</a>
+            </li>
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Home Content -->
+    <div class="container mt-5 text-center">
+      <h1>Welcome to PoA</h1>
+      <p class="lead">
+        Your Ultimate Habit Tracker, Weekly Planner & Journal
+      </p>
+      <div class="mt-4">
+        <a href="register.html" class="btn btn-primary me-2">Register</a>
+        <a href="login.html" class="btn btn-success">Login</a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+      <div class="container">
+        <p>&copy; 2025 PoA. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    ></script>
+    <script>
+      // Simple function to decode the JWT payload (without using a library)
+      function parseJwt(token) {
+        try {
+          const base64Url = token.split('.')[1];
+          const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+          const jsonPayload = decodeURIComponent(
+            atob(base64)
+              .split('')
+              .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+              .join('')
+          );
+          return JSON.parse(jsonPayload);
+        } catch (error) {
+          console.error("Error parsing JWT:", error);
+          return null;
+        }
+      }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        const token = localStorage.getItem('token');
+        if (token) {
+          const user = parseJwt(token);
+          if (user && user.role && user.role.toLowerCase() === 'admin') {
+            // Inject the admin dashboard link into the navbar
+            document.getElementById('adminNav').innerHTML =
+              '<a class="nav-link" href="admin.html">Admin Dashboard</a>';
+          }
+        }
+      });
+      </script>      
+  </body>
+</html>
